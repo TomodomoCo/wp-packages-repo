@@ -21,7 +21,8 @@
     "process-timeout": 0
   },
   "scripts": {
-    "start": "php -S localhost:8000 -t public public/index.php"
+    "start": "php -S localhost:8000 -t public public/index.php",
+	"dep": "dep --ansi"
   },
   "require-dev": {
     "deployer/deployer": "^6.4"
