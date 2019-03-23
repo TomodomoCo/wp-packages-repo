@@ -21,7 +21,7 @@ Add the `packages.tomodomo.co` Composer repository (or your own repository hostn
     },
     {
       "type": "composer",
-      "url" : "https://packages.tomodomo.co"
+      "url": "https://packages.tomodomo.co"
     }
   ]
 }
