@@ -1,0 +1,7 @@
+/vendor/
+/log/
+/logs/*
+/config/credentials/
+/config/secrets/
+!/logs/README.md
+.vagrant

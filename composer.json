@@ -1,0 +1,29 @@
+{
+  "name": "tomodomoco/packages",
+  "description": "Custom Composer packages repository for private WordPress plugins",
+  "require": {
+    "php": "^7.1.0",
+    "slim/slim": "^3.1",
+    "danielstjules/stringy": "^3.1",
+    "tightenco/collect": "^5.6",
+    "tuupola/cors-middleware": "^0.7.0",
+    "twig/twig": "^2.0",
+    "wyrihaximus/list-classes-in-directory": "^1.3"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tomodomo\\Packages\\Controllers\\": "app/controllers/",
+      "Tomodomo\\Packages\\Models\\": "app/models/",
+      "Tomodomo\\Packages\\Packages\\": "app/packages/"
+    }
+  },
+  "config": {
+    "process-timeout": 0
+  },
+  "scripts": {
+    "start": "php -S localhost:8000 -t public public/index.php"
+  },
+  "require-dev": {
+    "deployer/deployer": "^6.4"
+  }
+}
