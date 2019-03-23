@@ -11,22 +11,22 @@ set('application', 'wp-packages-repo');
 set('repository', 'git@github.com:TomodomoCo/wp-packages-repo.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
-set('git_tty', true); 
+set('git_tty', true);
 
-// Shared files/dirs between deploys 
+// Shared files/dirs between deploys
 set('shared_files', []);
 set('shared_dirs', []);
 
-// Writable dirs by web server 
+// Writable dirs by web server
 set('writable_dirs', []);
 
 set('bin/composer', 'composer7.2-sp');
 
 // Hosts
 host('packages.tomodomo.co')
-	->user('packages')
-	->forwardAgent()
-    ->set('deploy_path', '~/apps/tomodomo-packages/deploy');    
+    ->user('packages')
+    ->forwardAgent()
+    ->set('deploy_path', '~/apps/tomodomo-packages/deploy');
 
 // Tasks
 desc('Deploy your project');
