@@ -7,36 +7,44 @@ use Tomodomo\Packages\Models\Package;
 class SearchWp extends Package
 {
     /**
-     * The package's name.
+     * The package name.
      *
-     * @var string
+     * @const string
      */
     const NAME = 'searchwp';
+
+	/**
+	 * The product name.
+	 *
+	 * @const string
+	 */
+	const PRODUCT_NAME = 'SearchWP';
 
     /**
      * The package's website URL.
      *
-     * @var string
+     * @const string
      */
     const URL = 'https://searchwp.com';
 
     /**
      * The package type; typically 'wordpress-plugin'.
      *
-     * @var string
+     * @const string
      */
     const TYPE = 'wordpress-plugin';
 
-    /**
-     * Valid versions for this package.
-     *
-     * @var array
-     */
-    const VERSIONS = [
-        '3.0.4',
-        '3.0.3',
-        '3.0.2',
-        '3.0.1',
-        '3.0.0',
-    ];
+	/**
+	 * The available versions for this plugin. For EDD plugins, should be an empty array.
+	 *
+	 * @const array
+	 */
+	const VERSIONS = [];
+
+	/**
+	 * Denote that this is an EDD (Easy Digital Downloads) plugin.
+	 *
+	 * @const bool
+	 */
+	const EDD = true;
 }
