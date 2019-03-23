@@ -20,7 +20,13 @@ set('shared_dirs', []);
 // Writable dirs by web server
 set('writable_dirs', []);
 
+// Use Server Pilot's composer 7.2
 set('bin/composer', 'composer7.2-sp');
+
+// Use a Capistrano-style release name
+set('release_name', function () {
+	return (string) run('date +"%Y%m%d%H%M%S"');
+});
 
 // Hosts
 host('packages.tomodomo.co')
