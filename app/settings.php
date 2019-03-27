@@ -2,7 +2,7 @@
 
 return [
     'settings' => [
-        'displayErrorDetails'    => false,
+        'displayErrorDetails'    => true,
         'addContentLengthHeader' => false,
     ],
 ];

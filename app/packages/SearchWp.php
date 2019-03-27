@@ -3,9 +3,12 @@
 namespace Tomodomo\Packages\Packages;
 
 use Tomodomo\Packages\Models\Package;
+use Tomodomo\Packages\Traits;
 
 class SearchWp extends Package
 {
+    use Traits\EddInstallable;
+
     /**
      * The package name.
      *
@@ -28,6 +31,13 @@ class SearchWp extends Package
     const URL = 'https://searchwp.com';
 
     /**
+     * The plugin installation method.
+     *
+     * @const string
+     */
+    const METHOD = 'edd';
+
+    /**
      * The package type; typically 'wordpress-plugin'.
      *
      * @const string
@@ -41,10 +51,13 @@ class SearchWp extends Package
 	 */
 	const VERSIONS = [];
 
-	/**
-	 * Denote that this is an EDD (Easy Digital Downloads) plugin.
-	 *
-	 * @const bool
-	 */
-	const EDD = true;
+    /**
+     * The extra data for the package.
+     *
+     * @const array
+     */
+    const DATA = [
+        'endpoint'  => 'https://searchwp.com',
+        'item_name' => 'SearchWP',
+    ];
 }

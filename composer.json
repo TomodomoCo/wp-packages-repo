@@ -13,7 +13,8 @@
     "psr-4": {
       "Tomodomo\\Packages\\Controllers\\": "app/controllers/",
       "Tomodomo\\Packages\\Models\\": "app/models/",
-      "Tomodomo\\Packages\\Packages\\": "app/packages/"
+      "Tomodomo\\Packages\\Packages\\": "app/packages/",
+      "Tomodomo\\Packages\\Traits\\": "app/traits/"
     }
   },
   "config": {

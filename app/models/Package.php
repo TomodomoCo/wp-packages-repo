@@ -10,7 +10,7 @@ class Package {
      *
      * @const string
      */
-    const NAMESPACE = 'junaidbhura';
+    const NAMESPACE = 'tomodomo';
 
     /**
      * Build an array of packages for each version.
@@ -20,64 +20,15 @@ class Package {
     public function build() : array
     {
         $versions = [];
-		$availableVersions = $this::VERSIONS;
-
-		// If this is a plugin sold via an EDD store, it gets special treatment.
-		// EDD only allows us to retrieve authorised downloads for the current
-		// active version, so we fetch that version via an API request and only
-		// use that version.
-		if ($this::EDD && empty($availableVersions)) {
-			$availableVersions[] = $this->getLatestVersion();
-		}
+        $availableVersions = $this->getVersions();
 
         // Build an array of all the package's versions.
         foreach ($availableVersions as $version) {
-            $versions[$version] = $this->buildVersion($version);
+            $versions[$version] = $this->getComposerRelease($version);
         }
 
         return $versions;
     }
-
-	/**
-	 * Fetch the current version of the plugin.
-	 *
-	 * @return array
-	 */
-	public function getLatestVersion() : string
-	{
-		if ($this::EDD === false) {
-			throw new \Exception('This plugin is not sold via an Easy Digital Downloads store.');
-		}
-
-		// Build the request body
-		$requestBody = [
-			'edd_action' => 'get_version',
-			'item_name'  => $this::PRODUCT_NAME,
-		];
-
-		// Build a new Guzzle client
-		$http = new \GuzzleHttp\Client();
-
-		// Send a request to the EDD endpoing
-		$response = $http->request(
-			'post',
-			$this::URL,
-			[
-				'form_params' => $requestBody,
-			],
-		);
-
-		// Extract the response
-		$body = json_decode((string) $response->getBody(), true);
-
-		// If we can't get a stable version, throw an exception
-		if (($body['stable_version'] ?? false) === false) {
-			throw new \Exception('No stable version was available.');
-		}
-
-		// Return the version number
-		return $body['stable_version'];
-	}
 
     /**
      * Get the namespaced package name.
@@ -90,25 +41,53 @@ class Package {
     }
 
     /**
+     * Get the basic Composer data about this package as an array.
+     *
+     * @return array
+     */
+    public function getComposerData() : array
+    {
+        return [
+            'name'    => $this->getNamespacedPackageName(),
+            'type'    => $this::TYPE,
+            'dist'    => [
+                'type' => 'zip',
+                'url'  => $this::URL, // This is the URL that the installer library overrides.
+            ],
+            'require' => [
+                'tomodomo/wp-packages-installer' => '*',
+            ],
+            'extra'   => [
+                'wp-packages-installer-config' => $this->getInstallerConfig(),
+            ],
+        ];
+    }
+
+    /**
      * Build a specific version of the package.
      *
      * @param string $version
      *
      * @return array
      */
-    public function buildVersion(string $version) : array
+    public function getComposerRelease(string $version) : array
     {
-        return [
-            'name'    => $this->getNamespacedPackageName(),
-            'type'    => $this::TYPE,
-            'version' => $version,
-            'dist'    => [
-                'type' => 'zip',
-                'url'  => $this::URL,
-            ],
-            'require' => [
-                'junaidbhura/composer-wp-pro-plugins' => '*',
-            ],
-        ];
+        // Get the Composer data for this package
+        $data = $this->getComposerData();
+
+        // Add the version number for the release
+        $data['version'] = $version;
+
+        return $data;
+    }
+
+    /**
+     * Get the versions available for this plugin.
+     *
+     * @return array
+     */
+    public function getVersions() : array
+    {
+        return $this::VERSIONS;
     }
 }
