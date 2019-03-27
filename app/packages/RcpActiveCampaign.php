@@ -16,13 +16,6 @@ class RcpActiveCampaign extends Package
      */
     const NAME = 'rcp-activecampaign';
 
-	/**
-	 * The product name.
-	 *
-	 * @const string
-	 */
-	const PRODUCT_NAME = 'ActiveCampaign';
-
     /**
      * The package's website URL.
      *
@@ -37,20 +30,13 @@ class RcpActiveCampaign extends Package
      */
     const TYPE = 'wordpress-plugin';
 
-	/**
-	 * The available versions for this plugin. For EDD plugins, should be an empty array.
-	 *
-	 * @const array
-	 */
-	const VERSIONS = [];
-
     /**
-     * The extra data for the package.
+     * The config data for the package.
      *
-     * @const array
+     * @var array
      */
-    const DATA = [
-        'endpoint'  => 'https://restrictcontentpro.com',
-        'item_name' => 'ActiveCampaign',
+    const CONFIG = [
+        'endpoint' => 'https://restrictcontentpro.com',
+        'itemName' => 'ActiveCampaign',
     ];
 }

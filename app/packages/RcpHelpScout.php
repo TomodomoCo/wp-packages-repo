@@ -16,13 +16,6 @@ class RcpHelpScout extends Package
      */
     const NAME = 'rcp-helpscout';
 
-	/**
-	 * The product name.
-	 *
-	 * @const string
-	 */
-	const PRODUCT_NAME = 'Help Scout';
-
     /**
      * The package's website URL.
      *
@@ -45,12 +38,12 @@ class RcpHelpScout extends Package
 	const VERSIONS = [];
 
     /**
-     * The extra data for the package.
+     * The config data for the package.
      *
      * @const array
      */
-    const DATA = [
-        'endpoint'  => 'https://restrictcontentpro.com',
-        'item_name' => 'Help Scout',
+    const CONFIG = [
+        'endpoint' => 'https://restrictcontentpro.com',
+        'itemName' => 'Help Scout',
     ];
 }

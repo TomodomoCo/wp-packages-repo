@@ -18,11 +18,21 @@ trait EddInstallable
 	 */
 	public function getLatestVersion() : string
 	{
+        // Get the installer configuration
+        $config = $this->getInstallerConfig();
+
 		// Build the request body
 		$requestBody = [
 			'edd_action' => 'get_version',
-			'item_name'  => $this::PRODUCT_NAME,
 		];
+
+        if ($config['itemId'] ?? false) {
+			$requestBody['item_id'] = $config['itemId'];
+        }
+
+        if ($config['itemName'] ?? false) {
+			$requestBody['item_name'] = $config['itemName'];
+        }
 
 		// Build a new Guzzle client
 		$http = new \GuzzleHttp\Client();

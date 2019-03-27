@@ -16,13 +16,6 @@ class RestrictContentPro extends Package
      */
     const NAME = 'restrict-content-pro';
 
-	/**
-	 * The product name.
-	 *
-	 * @const string
-	 */
-	const PRODUCT_NAME = 'Restrict Content Pro';
-
     /**
      * The package's website URL.
      *
@@ -37,20 +30,13 @@ class RestrictContentPro extends Package
      */
     const TYPE = 'wordpress-plugin';
 
-	/**
-	 * The available versions for this plugin. For EDD plugins, should be an empty array.
-	 *
-	 * @const array
-	 */
-	const VERSIONS = [];
-
     /**
      * The extra data for the package.
      *
      * @const array
      */
-    const DATA = [
-        'endpoint'  => 'https://restrictcontentpro.com',
-        'item_name' => 'Restrict Content Pro',
+    const CONFIG = [
+        'endpoint' => 'https://restrictcontentpro.com',
+        'itemName' => 'Restrict Content Pro',
     ];
 }

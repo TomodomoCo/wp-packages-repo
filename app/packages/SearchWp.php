@@ -16,13 +16,6 @@ class SearchWp extends Package
      */
     const NAME = 'searchwp';
 
-	/**
-	 * The product name.
-	 *
-	 * @const string
-	 */
-	const PRODUCT_NAME = 'SearchWP';
-
     /**
      * The package's website URL.
      *
@@ -37,20 +30,13 @@ class SearchWp extends Package
      */
     const TYPE = 'wordpress-plugin';
 
-	/**
-	 * The available versions for this plugin. For EDD plugins, should be an empty array.
-	 *
-	 * @const array
-	 */
-	const VERSIONS = [];
-
     /**
      * The extra data for the package.
      *
      * @const array
      */
-    const DATA = [
-        'endpoint'  => 'https://searchwp.com',
-        'item_name' => 'SearchWP',
+    const CONFIG = [
+        'endpoint' => 'https://searchwp.com',
+        'itemName' => 'SearchWP',
     ];
 }

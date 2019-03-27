@@ -88,7 +88,7 @@ class Package {
      */
     public function getVersions() : array
     {
-        return $this::VERSIONS;
+        return $this->versions ?? [];
     }
 
     /**
@@ -98,11 +98,11 @@ class Package {
      */
     public function getInstallerConfig() : array
     {
-        $config = $this::DATA;
+        $config = $this::CONFIG;
 
         // Add the method
         $config['method'] = $this->method;
 
-        return array_merge($config, $this::DATA);
+        return $config;
     }
 }
