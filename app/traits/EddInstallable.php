@@ -5,16 +5,11 @@ namespace Tomodomo\Packages\Traits;
 trait EddInstallable
 {
     /**
-     * Get the installation config method.
+     * The plugin installation method.
      *
-     * @return array
+     * @var string
      */
-    public function getInstallerConfig() : array
-    {
-        return [
-            'method' => $this::METHOD,
-        ];
-    }
+    public $method = 'edd';
 
 	/**
 	 * Fetch the current version of the plugin.

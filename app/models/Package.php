@@ -90,4 +90,19 @@ class Package {
     {
         return $this::VERSIONS;
     }
+
+    /**
+     * Generic installer config method
+     *
+     * @return array
+     */
+    public function getInstallerConfig() : array
+    {
+        $config = $this::DATA;
+
+        // Add the method
+        $config['method'] = $this->method;
+
+        return array_merge($config, $this::DATA);
+    }
 }

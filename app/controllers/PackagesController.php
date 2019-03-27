@@ -41,5 +41,4 @@ class PackagesController extends BaseController
 
         return $response->withJson($data);
     }
-
 }

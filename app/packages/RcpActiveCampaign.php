@@ -31,13 +31,6 @@ class RcpActiveCampaign extends Package
     const URL = 'https://restrictcontentpro.com';
 
     /**
-     * The plugin installation method.
-     *
-     * @const string
-     */
-    const METHOD = 'edd';
-
-    /**
      * The package type; typically 'wordpress-plugin'.
      *
      * @const string

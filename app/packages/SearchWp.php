@@ -31,13 +31,6 @@ class SearchWp extends Package
     const URL = 'https://searchwp.com';
 
     /**
-     * The plugin installation method.
-     *
-     * @const string
-     */
-    const METHOD = 'edd';
-
-    /**
      * The package type; typically 'wordpress-plugin'.
      *
      * @const string
