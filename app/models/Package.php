@@ -10,7 +10,7 @@ class Package {
      *
      * @const string
      */
-    const NAMESPACE = 'tomodomo';
+    const NAMESPACE = 'wp-packages';
 
     /**
      * Build an array of packages for each version.
